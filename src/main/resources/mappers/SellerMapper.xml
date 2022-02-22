@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+ 
+ <mapper namespace="com.baemongsil.ex.lesson04.dao.SellerDAO">
+ 
+	<select id="sellerview" resultType="com.baemongsil.ex.lesson04.model.Seller">
+ 	
+		SELECT
+			`id`
+			,`nickname`
+			,`profileimageUrl`
+			,`temperature`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`seller`
+		ORDER BY `id` DESC
+  		LIMIT 1
+ 	
+ 	</select> 
+ 
+ 
+	 <insert id="insertSeller"  parameterType="map">
+	 	INSERT INTO `seller`
+	 	(
+	 		`nickname`
+	 		,`profileimageUrl`
+			,`temperature`
+			,`createdAt`
+			,`updatedAt`
+	 	) VALUE(
+	 		#{nickname}
+	 		,#{profileimageUrl}
+	 		,#{temperature}
+	 		,now()
+	 		,now()
+	 	)
+	 </insert>
+ </mapper>

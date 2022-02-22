@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.baemongsil.ex.lesson03.dao.RealEstateDAO">
+  
+  	<select id="selectRealEstate" parameterType="int"
+  	resultType="com.baemongsil.ex.lesson03.model.RealEstate">
+  	
+  		SELECT
+  			`id`
+  			,`realtorId`
+  			,`area`
+  			,`type`
+  			,`price`
+  			,`rentPrice`
+  			,`createdAt`
+  			,`updatedAt`
+  		FROM
+  			`real_estate`
+  		WHERE
+  			`id` = #{id}
+  	
+  	</select>
+  	
+  	<select id="selectRealEstateByRentPrice" parameterType="int"
+  	resultType="com.baemongsil.ex.lesson03.model.RealEstate">
+  		
+  		SELECT
+  			`id`
+  			,`realtorId`
+  			,`area`
+  			,`type`
+  			,`price`
+  			,`rentPrice`
+  			,`createdAt`
+  			,`updatedAt`
+  		FROM
+  			`real_estate`
+  		WHERE
+  		<![CDATA[`rentPrice` < #{rentPrice} ]]>
+  			
+  		
+  	
+  	</select>
+  	
+  	<select id="selectRealEstateByAreaPrice" parameterType="map"
+  	resultType="com.baemongsil.ex.lesson03.model.RealEstate">
+  	
+  		SELECT
+  			`id`
+  			,`realtorId`
+  			,`area`
+  			,`type`
+  			,`price`
+  			,`rentPrice`
+  			,`createdAt`
+  			,`updatedAt`
+  		FROM
+  			`real_estate`
+  		WHERE
+  		<![CDATA[
+  			`area` >= #{area}
+  			AND 
+  			`price` <= #{price}
+  		]]>
+  	</select>
+  	
+  	<insert id="insertRealEstate" parameterType="com.baemongsil.ex.lesson03.model.RealEstate">
+  	 	
+  	 	Insert INTO `real_estate`
+  	 	(
+  	 		`realtorId`
+  	 		,`address`
+  	 		,`area`
+  			,`type`
+  			,`price`
+  			,`rentPrice`
+  			,`createdAt`
+  			,`updatedAt`
+  	 	)VALUE(
+  	 		#{realtorId}
+  	 		#{address},
+			#{area},
+			#{type},
+			#{price},
+			#{rentPrice},
+			now(),
+			now()
+		)
+  	 	
+  	 	
+  	 			
+  	 			
+  	</insert>
+  	
+  	
+  </mapper>
