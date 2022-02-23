@@ -41,4 +41,24 @@
 	 		,now()
 	 	)
 	 </insert>
+	 
+	 <select id="selectSeller" parameterType="int"
+	 resultType="com.baemongsil.ex.lesson04.model.Seller">
+	 
+	 	SELECT
+			`id`
+			,`nickname`
+			,`profileimageUrl`
+			,`temperature`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`seller`
+		WHERE
+			`id` = #{id}
+	 </select>
+	 
+	 
  </mapper>
+ 
+ 

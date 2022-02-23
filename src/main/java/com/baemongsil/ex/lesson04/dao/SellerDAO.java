@@ -16,6 +16,7 @@ public interface SellerDAO {
 			@Param("temperature") double temperature
 			);
 	
+	public Seller selectSeller(@Param("id") int id);
 	
 }
 

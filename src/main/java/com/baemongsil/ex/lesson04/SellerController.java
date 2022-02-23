@@ -20,10 +20,20 @@ public class SellerController {
 	private SellerBO sellerBO;
 	
 	@RequestMapping("/test01")
-	public String getSellerview(Model model) {
+	public String getSellerview(
+			@RequestParam(value="id", required=false) Integer id,
+			Model model) {
+			//id 라는 파라미터가 있으면 해당하는 정보 출력
+			if(id != null) {
+				Seller seller = sellerBO.sellerGet(id);
+				model.addAttribute("result",seller);
+				
+			}else {
+				//id 라는파라미터가 없으면 가장최근 판매자 출력
+				Seller seller = sellerBO.getSeller();
+				model.addAttribute("result",seller);
+			}
 		
-		Seller seller = sellerBO.getSeller();
-		model.addAttribute("result",seller);
 		return "lesson04/test01";
 	}
 	

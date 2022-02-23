@@ -19,7 +19,10 @@ public class SellerBO {
 	public int addSeller(String nickname,String profileimageUrl, double temperature) {
 		return sellerDAO.insertSeller(nickname, profileimageUrl, temperature);
 	}
-		
+	
+	public Seller sellerGet(int id) {
+		return sellerDAO.selectSeller(id);
+	}
 
 	
 }	
