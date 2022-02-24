@@ -29,8 +29,9 @@
 				<c:forEach var="candidate" items="${candidates }" varStatus="status">
 					<tbody>
 						<tr>
+						
 							<td>${status.count }</td>
-							<td><fmt:formatNumber value="${candidate }" type="number"  groupingUsed="ture"/></td>
+							<td><fmt:formatNumber value="${candidate }" type="number"  groupingUsed="true"/></td>
 							<td><fmt:formatNumber value="${candidate / '1000000'}" type="percent" /></td>
 						</tr>
 					</tbody>
