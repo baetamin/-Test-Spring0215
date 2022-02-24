@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>musicranking</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -26,9 +26,7 @@
 			<c:forEach var="ranking" items="${musicRanking}" varStatus="status">
 				<tr>
 					<td>${status.count}</td>
-					<td>
-						<c:out value="${ranking}" />
-					</td>
+					<td>${ranking }</td>
 				</tr>
 			</c:forEach>
 		</table>

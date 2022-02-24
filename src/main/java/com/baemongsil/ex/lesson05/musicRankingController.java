@@ -1,7 +1,9 @@
 package com.baemongsil.ex.lesson05;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,5 +27,7 @@ public class musicRankingController {
 		
 		return "lesson05/test02";
 	}
+	
+	
 	
 }
